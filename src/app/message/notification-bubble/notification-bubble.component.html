@@ -1,0 +1,8 @@
+<div [hidden]="hidden" class="notification-bubble" (click)="handleClick()">
+  <div class="notification-header">
+    New message from {{ newMessage?.sender_id }}
+  </div>
+  <div class="notification-content">
+    {{ newMessage?.message }}
+  </div>
+</div>

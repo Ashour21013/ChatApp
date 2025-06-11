@@ -1,0 +1,67 @@
+<div class="container text-center mt-5">
+  <div class="card shadow-sm rounded-4 p-4 mx-auto" style="max-width: 500px">
+    <div class="mb-4">
+      <h4 class="mb-1">Welcome Back</h4>
+      <small class="text-muted">Please log in to continue</small>
+    </div>
+
+    <p class="text-primary mb-2">{{ textToShow }}</p>
+
+    <!-- @if (inputFeld) {
+    <p>Hello {{ inputFeld }}</p>
+    } -->
+
+    <form (ngSubmit)="changeTextToshow()" #loginForm="ngForm">
+      <div class="mb-3 text-start">
+        <label for="loginUser" class="form-label">Email</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          id="loginUser"
+          name="loginUser"
+          placeholder="you@example.com"
+          required
+          [(ngModel)]="inputFeld"
+        />
+      </div>
+
+      <div class="mb-3 text-start">
+        <label for="loginPass" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control form-control-lg"
+          id="loginPass"
+          name="loginPass"
+          placeholder="Enter your password"
+          required
+          [(ngModel)]="password"
+        />
+      </div>
+
+      <!-- ✅ Neue Checkbox für Login-Daten speichern -->
+      <div class="form-check mb-3 text-start">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="saveLoginCheckbox"
+          name="saveLoginCheckbox"
+          [(ngModel)]="saveLoginData"
+        />
+        <label class="form-check-label" for="saveLoginCheckbox">
+          Login-Daten speichern
+        </label>
+      </div>
+
+      <div class="text-center mb-3">
+        <button type="submit" class="btn btn-success px-5">Login</button>
+      </div>
+
+      <p class="text-center mb-0">
+        Not a member?
+        <a href="#" class="link-primary fw-semibold">Create an account</a>
+      </p>
+    </form>
+
+    <div id="loginResult" class="mt-3 text-center"></div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+{
+  "/messenger": {
+    "target": "http://webp-ilv-backend.cs.technikum-wien.at",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

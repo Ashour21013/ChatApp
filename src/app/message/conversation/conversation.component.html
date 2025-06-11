@@ -1,0 +1,49 @@
+<!-- Gesamtcontainer -->
+<div class="container-fluid vh-100 d-flex flex-column p-0">
+  <!-- Volle Höhe -->
+  <div class="row flex-grow-1 m-0">
+    <div class="col-12 d-flex flex-column p-3 bg-light" style="height: 100vh">
+      <!-- Nachrichtenbereich -->
+      <div
+        #chatMessages
+        id="chatMessages"
+        class="mb-3 rounded shadow-sm"
+        style="
+          overflow-y: auto;
+          border: 1px solid #ccc;
+          padding: 1rem;
+          background-color: #fff;
+          flex: 1 1 auto;
+          max-height: 100%;
+        "
+      >
+        <div
+          class="message mb-2"
+          *ngFor="let msg of data"
+          [class.text-end]="isOwnMessage(msg)"
+          [class.text-start]="!isOwnMessage(msg)"
+        >
+          <strong>{{ isOwnMessage(msg) ? "You" : "Them" }}:</strong>
+          {{ msg.message }}
+        </div>
+
+        <!-- Eingabeformular -->
+        <form
+          class="d-flex w-100"
+          (ngSubmit)="handleSendMessage()"
+          #form="ngForm"
+        >
+          <input
+            type="text"
+            class="form-control me-2"
+            placeholder="Type your message..."
+            [(ngModel)]="messageInput"
+            name="messageText"
+            required
+          />
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
